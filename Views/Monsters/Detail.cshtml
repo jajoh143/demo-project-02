@@ -1,0 +1,25 @@
+@model demo_project_01_stream.Models.Monsters.DetailPageViewModel
+
+<form method="post" name="Monster">
+    <h1>@Model.Monster.Name</h1>
+
+    <ul>
+        <li>Armor Class: @Model.Monster.ArmorClass</li>
+        <li>Alignment: @Model.Monster.Alignment</li>
+        <li>Hitpoints: @Model.Monster.HitPoints</li>
+        <li>Size: @Model.Monster.Size</li>
+        <li>Type: @Model.Monster.Type</li>
+        @if(Model.Monster.Subtype != null && Model.Monster.Subtype.Length > 0)
+        {
+            <li>Subtype: @Model.Monster.Subtype</li>
+            <input type="hidden" name="Subtype" value="@Model.Monster.Subtype" />
+        }
+    </ul>
+    <input type="hidden" name="Name" value="@Model.Monster.Name" />
+    <input type="hidden" name="ArmorClass" value="@Model.Monster.ArmorClass" />
+    <input type="hidden" name="Alignment" value="@Model.Monster.Alignment" />
+    <input type="hidden" name="Size" value="@Model.Monster.Size" />
+    <input type="hidden" name="Type" value="@Model.Monster.Type" />
+    <input type="hidden" name="HitPoints" value="@Model.Monster.HitPoints" />
+    <button asp-controller="Monsters" asp-action="SaveMonster" role="button">Save</button>
+</form>

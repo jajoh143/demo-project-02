@@ -1,0 +1,12 @@
+@model demo_project_01_stream.Models.Monsters.IndexPageViewModel
+
+<div>
+    <h1>Monsters</h1>
+</div>
+
+<ul>
+@foreach (var item in Model.MonsterList.Results)
+{
+    <li>Monster Name: @item.Name&nbsp;<a asp-asp-controller="Monsters" asp-action="Detail" asp-route-url="@item.Url">Select</a></li>
+}
+</ul>
